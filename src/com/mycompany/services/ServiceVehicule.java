@@ -173,7 +173,8 @@ public ArrayList<Vehicule> getAllVehicules() {
         return  resultOk;
     }
    public boolean modifierVehicule(Vehicule p,String id) {
-        String url = Statics.BASE_URL +"/vehicule/editJSON/"+id+"&matricule" + p.getMatricule() + "&type =" + p.getType() +"&puissance="+p.getPuissance() +"&batterie="+p.getBatterie() +"&prix="+p.getPrix();
+        String url = Statics.BASE_URL +"/vehicule/editJSON/"+id+ "?type=" + p.getType() +"&prix="+p.getPrix()+"&puissance="+p.getPuissance();
+                                     //  vehicule/editJSON/135?type=trotinette&prix=20&puissance=10
         req.setUrl(url);
         
         req.addResponseListener(new ActionListener<NetworkEvent>() {

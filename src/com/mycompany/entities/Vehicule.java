@@ -22,11 +22,12 @@ public class Vehicule {
     private int maxspeed;
     public Vehicule() {}
 
-    public Vehicule( String matricule,int puissance, int prix) {
+    public Vehicule( String type,int puissance, int prix) {
         this.puissance = puissance;
-        this.matricule = matricule;
+        this.type=type;
         this.prix = prix;
     }
+    
 
     public Vehicule(String type, String modele, int batterie, int puissance, String matricule, int prix) {
         this.type = type;
@@ -46,9 +47,7 @@ public class Vehicule {
         this.prix=prix;
     }
 
-    public Vehicule(String text, String text0, int parseInt, String text1, int parseInt0, String text2, int parseInt1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
     public int getId() {return id;}
 

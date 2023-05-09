@@ -34,11 +34,7 @@ public class ModifierVehicule extends Form {
         setLayout(tl);
 
         TextField type = new TextField(v.getType(), "Type du véhicule");
-        TextField modele = new TextField(v.getModele(), "Modèle");
-        TextField batterie = new TextField(Integer.toString(v.getBatterie()), "Batterie");
-        TextField status = new TextField(v.getStatus(), "Statut");
         TextField prix = new TextField(Integer.toString(v.getPrix()), "Prix");
-        TextField matricule = new TextField(v.getMatricule(), "Matricule");
         TextField puissance = new TextField(Integer.toString(v.getPuissance()), "Puissance");
 
         Button btnModifier = new Button("MODIFIER");
@@ -47,15 +43,12 @@ public class ModifierVehicule extends Form {
             @Override
             public void actionPerformed(ActionEvent evt) {
 
-                if (type.getText().length() == 0 || batterie.getText().length() == 0 || modele.getText().length() == 0
-                        ||status.getText().length() == 0
-                        || prix.getText().length() == 0 || matricule.getText().length() == 0
+                if (type.getText().length() == 0 
+                        || prix.getText().length() == 0 
                         || puissance.getText().length() == 0 ) {
                     Dialog.show("Alert", "Please fill all the fields", "OK", null);
                 } else {
-                    Vehicule veh = new Vehicule(type.getText(), modele.getText(), Integer.parseInt(batterie.getText()),
-                            status.getText(), Integer.parseInt(prix.getText()), matricule.getText(),
-                            Integer.parseInt(puissance.getText()));
+                    Vehicule veh = new Vehicule(type.getText(),Integer.parseInt(puissance.getText()), Integer.parseInt(prix.getText()));
 
                     veh.setId(v.getId()); // Important : set the id of the updated vehicle to the original id
                     if (ServiceVehicule.getinstance().modifierVehicule(veh, id)) {
@@ -69,7 +62,7 @@ public class ModifierVehicule extends Form {
             }
         });
 
-        f.addAll(type, batterie, modele, status, prix, matricule, puissance, btnModifier);
+        f.addAll(type,puissance,prix, btnModifier);
         f.show();
     }
 
