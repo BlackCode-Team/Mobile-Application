@@ -28,10 +28,14 @@ public class Home extends Form {
         setTitle("Welcome TO CARNGO");
         setLayout(BoxLayout.y());
         Button park = new Button("Gestion des Parks");
+        Button vehicule = new Button("Gestion des véhicules");
 
         park.addActionListener((evt) -> new MenuPark(current).show());
+        vehicule.addActionListener((evt) -> new MenuVehicule(current).show());
+
 
         addAll(park);
+        addAll(vehicule);
 
     }
 

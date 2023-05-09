@@ -32,10 +32,8 @@ public class addPark extends Form{
         TextField tfville = new TextField("","Park ville");
         TextField nbplace = new TextField("","Park nbspot");
         CheckBox cb = new CheckBox("Status");
-       
 
         Button btnadd =new Button("add park");
-        
         
         btnadd.addActionListener(new ActionListener() {
             @Override
