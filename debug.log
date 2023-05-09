@@ -9,3 +9,4 @@
 [0507/020134.106:WARNING:spdy_session.cc(3365)] Received HEADERS for invalid stream 81
 [0507/020135.268:WARNING:spdy_session.cc(3365)] Received HEADERS for invalid stream 175
 [0507/020135.270:WARNING:spdy_session.cc(3365)] Received HEADERS for invalid stream 177
+[0508/144232.923:INFO:CONSOLE(1936)] "Uncaught TypeError: Sfjs.createFilters is not a function", source: http://127.0.0.1:8000/park/jsonmap/4 (1936)
