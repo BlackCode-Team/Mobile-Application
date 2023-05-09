@@ -28,24 +28,18 @@ public class Home extends Form {
         setTitle("Welcome TO CARNGO");
         setLayout(BoxLayout.y());
         Button park = new Button("Gestion des Parks");
-<<<<<<< Updated upstream
+        Button badge = new Button("Gestion des badges");
         Button vehicule = new Button("Gestion des véhicules");
 
         park.addActionListener((evt) -> new MenuPark(current).show());
         vehicule.addActionListener((evt) -> new MenuVehicule(current).show());
-
-
-        addAll(park);
-        addAll(vehicule);
-=======
-        Button badge = new Button("Gestion des badges");
-
-        park.addActionListener((evt) -> new MenuPark(current).show());
         badge.addActionListener((evt) -> new MenuBadge(current).show());
 
+
         addAll(park);
+        addAll(vehicule);  
         addAll(badge);
->>>>>>> Stashed changes
+
 
     }
 

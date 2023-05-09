@@ -79,7 +79,11 @@ public class ListBadges extends Form {
             @Override
             public void actionPerformed(ActionEvent l) {
                 Dialog dig = new Dialog("Suppression");
-
+                if (dig.show("Suppression", "Vous voulez supprimer ce badge ?", "Annuler", "Oui")) {
+                    dig.dispose();
+                } else {
+                    dig.dispose();
+                }
                
                 //n3ayto l suuprimer men service Reclamation ou nrefreshiw liste 
                 if (ServiceBadge.getinstance().deleteBadge(String.valueOf(b.getId()))) {
