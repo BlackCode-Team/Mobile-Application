@@ -23,6 +23,7 @@ import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
 import com.mycompany.entities.Park;
 import com.mycompany.entities.Vehicule;
+import com.mycompany.myapp.Home;
 import com.mycompany.services.ServicePark;
 import com.mycompany.services.ServiceVehicule;
 
@@ -44,6 +45,8 @@ public class ListVehicules extends Form {
 
         setTitle("List Vehicule");
         setLayout(BoxLayout.y());
+        
+        
 
         ArrayList<Vehicule> tasks = ServiceVehicule.getinstance().getAllVehicules();
         for (Vehicule p : tasks) {
@@ -101,8 +104,8 @@ public class ListVehicules extends Form {
                     dig.dispose();
                 }
                 //n3ayto l suuprimer men service Reclamation ou nrefreshiw liste 
-                if (ServiceVehicule.getinstance().deleteVehicules(String.valueOf(v.getId()))) {
-                  //  new ListParks(current).show();
+                if (ServiceVehicule.getinstance().deleteVehicules(String.valueOf(v.getId()))==true) {
+                  new ListVehicules(new MenuVehicule( new Home())).show();
                 }
             }
         });
@@ -129,8 +132,10 @@ public class ListVehicules extends Form {
         cnt.add(puissance);
         cnt.add(status);
         cnt.add(prix);
+        Container BUTTONS = new Container(new BoxLayout(BoxLayout.X_AXIS));
 
-        cnt.addAll(lSupprimer, lModifier);
+        BUTTONS.addAll(lSupprimer, lModifier);
+        cnt.add(BUTTONS);
 
 
         add(cnt);

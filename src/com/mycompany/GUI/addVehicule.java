@@ -16,6 +16,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.mycompany.entities.Vehicule;
+import com.mycompany.myapp.Home;
 import com.mycompany.services.ServiceVehicule;
 
 public class addVehicule extends Form {    
@@ -42,9 +43,9 @@ public class addVehicule extends Form {
                 }
                 else{
                     
-                    String status ="ferme" ; 
+                    String status ="non disponible" ; 
                     if(cbStatus.isSelected())
-                        status ="ouvert" ;
+                        status ="disponible" ;
                         
                     Vehicule vehicule = new Vehicule();
                     vehicule.setMatricule(tfMatricule.getText());
@@ -55,8 +56,11 @@ public class addVehicule extends Form {
                     vehicule.setType(cbType.getSelectedItem());
                     vehicule.setStatus(status);
                     vehicule.setBatterie(100);
+    
+                    vehicule.setBatterie(100);
                     if(ServiceVehicule.getinstance().addVehicule(vehicule)){
                          Dialog.show("Alert","Vehicle added successfully","OK",null);
+                          new ListVehicules(new MenuVehicule(new Home())).show();
                     }else {
                          Dialog.show("Alert","Error while connecting to server ","OK",null);
                     }

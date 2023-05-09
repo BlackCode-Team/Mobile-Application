@@ -22,7 +22,7 @@ public class Home extends Form {
     Form current;
     private Resources theme;
 
-    public Home(Form previous) {
+    public Home() {
         current = this; //Back 
 
         setTitle("Welcome TO CARNGO");
@@ -30,6 +30,7 @@ public class Home extends Form {
         Button park = new Button("Gestion des Parks");
         Button badge = new Button("Gestion des badges");
         Button vehicule = new Button("Gestion des véhicules");
+
 
         park.addActionListener((evt) -> new MenuPark(current).show());
         vehicule.addActionListener((evt) -> new MenuVehicule(current).show());
@@ -39,8 +40,6 @@ public class Home extends Form {
         addAll(park);
         addAll(vehicule);  
         addAll(badge);
-
-
     }
 
 }

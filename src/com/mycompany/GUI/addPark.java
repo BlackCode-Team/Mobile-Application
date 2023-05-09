@@ -15,6 +15,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.mycompany.entities.Park;
+import com.mycompany.myapp.Home;
 import com.mycompany.services.ServicePark;
 
 
@@ -51,6 +52,7 @@ public class addPark extends Form{
                     Park tas = new Park(Integer.parseInt(nbplace.getText()),tfville.getText(),tfname.getText(),status);
                     if(ServicePark.getinstance().addPark(tas)){
                          Dialog.show("Alert","added successfuly","ok",null);
+                          new ListParks(new MenuPark( new Home())).show();
                     }else {
                          Dialog.show("Alert","Err while connecting to server ","ok",null);
                     }

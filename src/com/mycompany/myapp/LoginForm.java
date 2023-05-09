@@ -73,7 +73,7 @@ public class LoginForm extends Form {
         loginButton.setUIID("LoginButton");
         loginButton.addActionListener(e -> {
             if(login.getText().equals(Admin)){
-                new Home(current).show();   //kenou admin ijih lehne lmenu ta3 admin y
+                new Home().show();   //kenou admin ijih lehne lmenu ta3 admin y
             }
             else{Toolbar.setGlobalToolbar(false);
           //  new WalkthruForm(theme).show();

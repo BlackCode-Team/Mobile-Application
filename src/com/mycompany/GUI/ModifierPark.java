@@ -16,6 +16,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.table.TableLayout;
 import com.mycompany.entities.Park;
+import com.mycompany.myapp.Home;
 import com.mycompany.services.ServicePark;
 
 /**
@@ -54,6 +55,7 @@ public class ModifierPark extends Form{
                     Park tas = new Park(Integer.parseInt(nbspot.getText()),Ville.getText(),nom.getText(),statut.getText());
                     if(ServicePark.getinstance().modifierPark(tas,id)){
                          Dialog.show("Alert","added successfuly","ok",null);
+                          new ListParks(new MenuPark( new Home())).show();
                     }else {
                          Dialog.show("Alert","Err while connecting to server ","ok",null);
                     }

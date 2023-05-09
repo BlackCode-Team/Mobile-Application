@@ -14,6 +14,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.table.TableLayout;
 import com.mycompany.entities.Vehicule;
+import com.mycompany.myapp.Home;
 import com.mycompany.services.ServiceVehicule;
 
 /**
@@ -59,6 +60,7 @@ public class ModifierVehicule extends Form {
                     veh.setId(v.getId()); // Important : set the id of the updated vehicle to the original id
                     if (ServiceVehicule.getinstance().modifierVehicule(veh, id)) {
                         Dialog.show("Alert", "Vehicle updated successfully", "OK", null);
+                         new ListVehicules(new MenuVehicule( new Home())).show();
                     } else {
                         Dialog.show("Alert", "Error while connecting to server ", "OK", null);
                     }

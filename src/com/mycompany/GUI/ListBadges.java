@@ -13,6 +13,7 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
 import com.mycompany.entities.Badge;
+import com.mycompany.myapp.Home;
 import com.mycompany.services.ServiceBadge;
 import com.mycompany.services.ServicePark;
 import java.util.ArrayList;
@@ -87,7 +88,7 @@ public class ListBadges extends Form {
                
                 //n3ayto l suuprimer men service Reclamation ou nrefreshiw liste 
                 if (ServiceBadge.getinstance().deleteBadge(String.valueOf(b.getId()))) {
-                  new ListBadges(current).show();
+                   new ListBadges(new MenuPark( new Home())).show();
                 }
             }
         });

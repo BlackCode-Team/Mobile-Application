@@ -22,6 +22,7 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
 import com.mycompany.entities.Park;
+import com.mycompany.myapp.Home;
 import com.mycompany.services.ServicePark;
 
 import java.util.ArrayList;
@@ -76,17 +77,17 @@ public class ListParks extends Form {
         Label nb = new Label("Nombre des Spots: " + p.getNbspot());
 
         //supprimer button
-        Button lSupprimer = new Button();
-        lSupprimer.setUIID("NewsTopLine");
-        Style supprmierStyle = new Style(lSupprimer.getUnselectedStyle());
+        Button Supprimer = new Button();
+        Supprimer.setUIID("NewsTopLine");
+        Style supprmierStyle = new Style(Supprimer.getUnselectedStyle());
         supprmierStyle.setFgColor(0xf21f1f);
 
         FontImage suprrimerImage = FontImage.createMaterial(FontImage.MATERIAL_DELETE, supprmierStyle);
-        lSupprimer.setIcon(suprrimerImage);
-        lSupprimer.setTextPosition(RIGHT);
+        Supprimer.setIcon(suprrimerImage);
+        Supprimer.setTextPosition(RIGHT);
 
         //click delete icon
-        lSupprimer.addActionListener(new ActionListener() {
+        Supprimer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent l) {
                 Dialog dig = new Dialog("Suppression");
@@ -97,22 +98,22 @@ public class ListParks extends Form {
                     dig.dispose();
                 }
                 //n3ayto l suuprimer men service Reclamation ou nrefreshiw liste 
-                if (ServicePark.getinstance().deletePark(String.valueOf(p.getIdpark()))) {
-                  //  new ListParks(current).show();
+                if (ServicePark.getinstance().deletePark(String.valueOf(p.getIdpark()))==true) {
+                   new ListParks(new MenuPark( new Home())).show();
                 }
             }
         });
 
         //Update icon 
-        Button lModifier = new Button();
-        lModifier.setUIID("NewsTopLine");
-        Style modifierStyle = new Style(lModifier.getUnselectedStyle());
+        Button Modifier = new Button();
+        Modifier.setUIID("NewsTopLine");
+        Style modifierStyle = new Style(Modifier.getUnselectedStyle());
         modifierStyle.setFgColor(0xf7ad02);
 
         FontImage mFontImage = FontImage.createMaterial(FontImage.MATERIAL_MODE_EDIT, modifierStyle);
-        lModifier.setIcon(mFontImage);
-        lModifier.setTextPosition(LEFT);
-        lModifier.addPointerPressedListener(new ActionListener() {
+        Modifier.setIcon(mFontImage);
+        Modifier.setTextPosition(LEFT);
+        Modifier.addPointerPressedListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent l) {
                 //System.out.println("hello update");
@@ -126,7 +127,10 @@ public class ListParks extends Form {
         cnt.add(ville);
         cnt.add(satut);
         cnt.add(nb);
-        cnt.addAll(lSupprimer, lModifier,map);
+        Container BUTTONS = new Container(new BoxLayout(BoxLayout.X_AXIS));
+
+        BUTTONS.addAll(Supprimer, Modifier);
+        cnt.add(BUTTONS);
 
         add(cnt);
 

@@ -59,7 +59,7 @@ ArrayList<Vehicule> vehicules;
         int prix=t.getPrix();
         String status = t.getStatus();
 
-        String url = Statics.BASE_URL + "/vehicule/newJSON?"+"image="+image + "&modele" + modele + "&matricule" + matricule + "&type =" + type +"&puissance="+puissance+"&batterie="+batterie+"&prix="+prix+"&status="+status;
+        String url = Statics.BASE_URL + "/vehicule/newJSON?"+"image="+image + "&modele=" + modele + "&matricule=" + matricule + "&type=" + type +"&puissance="+puissance+"&batterie="+batterie+"&prix="+prix+"&status="+status;
         req.setUrl(url);
         //GET =>
         req.setPost(false);
@@ -94,8 +94,8 @@ public void parseVehicules(String jsonText, ArrayList<Vehicule> vehicules) {
     for (Map<String, Object> obj : list) {
         System.out.println("obj = " + obj);
         Vehicule v = new Vehicule();
-        float id = Float.parseFloat(obj.get("id").toString());
-        //v.setId((int) id);
+        float id = Float.parseFloat(obj.get("idvehicule").toString());
+        v.setId((int) id);
         v.setType(obj.get("type").toString());
         v.setModele(obj.get("modele").toString());
         Object batterieObj = obj.get("batterie");
@@ -122,7 +122,7 @@ public void parseVehicules(String jsonText, ArrayList<Vehicule> vehicules) {
             // handle error, e.g. set a default value
             v.setPuissance(0);
         }
-        v.setImg(obj.get("img").toString());
+        v.setImg(obj.get("image").toString());
         vehicules.add(v);
     }
 
@@ -188,4 +188,25 @@ public ArrayList<Vehicule> getAllVehicules() {
     return resultOk;
         
     }
+   
+   public ArrayList<Vehicule> getVehicule(int id) {
+    ArrayList<Vehicule> vehicules = new ArrayList<>();
+    String url ="http://127.0.0.1:8000/vehicule/showJSON/"+id;
+    try {
+        ConnectionRequest con = new ConnectionRequest();
+        con.setUrl(url);
+        con.setPost(false);
+        con.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                String jsonText = new String(con.getResponseData());
+                parseVehicules(jsonText, vehicules);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(con);
+    } catch (Exception ex) {
+        System.out.println(ex.getMessage());
+    }
+    return vehicules;
+}
 }
