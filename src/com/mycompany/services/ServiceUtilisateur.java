@@ -54,7 +54,7 @@ public class ServiceUtilisateur {
         String permis = u.getPermis();
         String password = u.getPwd();
 
-        String url = Statics.BASE_URL + "/park/addparkJSON/new?" + "nom=" + nom + "&prenom=" + prenom + "&email=" + email + "&cin=" + cin + "&permis=" + permis + "&password=" + password ;
+        String url = Statics.BASE_URL + "/utilisateur/adduserJSON/new?" + "nom=" + nom + "&prenom=" + prenom + "&email=" + email + "&cin=" + cin + "&permis=" + permis + "&password=" + password ;
 
         req.setUrl(url);
         //GET =>
@@ -112,7 +112,7 @@ public void parseAgents(String jsonText, ArrayList<Utilisateur> users) {
 //a
 public ArrayList<Utilisateur> getAllAgents() {
     ArrayList<Utilisateur> users = new ArrayList<>();
-    String url ="http://127.0.0.1:8000/park/jsonall";
+    String url ="http://127.0.0.1:8000/utilisateur/jsonall";
     try {
         ConnectionRequest con = new ConnectionRequest();
         con.setUrl(url);
@@ -133,7 +133,7 @@ public ArrayList<Utilisateur> getAllAgents() {
 
     public boolean deleteAgent(String id ) {
         
-        String url = Statics.BASE_URL +"/park/deleteparksJSON/"+id;
+        String url = Statics.BASE_URL +"/utilisateur/deleteusersJSON/"+id;
         
         req.setUrl(url);
         
@@ -149,7 +149,7 @@ public ArrayList<Utilisateur> getAllAgents() {
         return  resultOk;
     }
    public boolean modifierAgent(Utilisateur u,String id) {
-        String url = Statics.BASE_URL +"/park/updateparkJSON/"+id+"?nom=" + u.getNom() + "&permis=" + u.getPermis()+ "&prenom=" + u.getPrenom()+ "&cin=" + u.getCin()+ "&email=" + u.getEmail();
+        String url = Statics.BASE_URL +"/utilisateur/updateuserJSON/"+id+"?nom=" + u.getNom() + "&permis=" + u.getPermis()+ "&prenom=" + u.getPrenom()+ "&cin=" + u.getCin()+ "&email=" + u.getEmail();
         req.setUrl(url);
         
         req.addResponseListener(new ActionListener<NetworkEvent>() {
