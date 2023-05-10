@@ -129,7 +129,7 @@ public class ListParks extends Form {
         cnt.add(nb);
         Container BUTTONS = new Container(new BoxLayout(BoxLayout.X_AXIS));
 
-        BUTTONS.addAll(Supprimer, Modifier);
+        BUTTONS.addAll(Supprimer, Modifier,map);
         cnt.add(BUTTONS);
 
         add(cnt);

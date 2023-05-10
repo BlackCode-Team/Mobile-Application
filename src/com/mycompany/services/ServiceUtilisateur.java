@@ -53,8 +53,10 @@ public class ServiceUtilisateur {
         String cin = u.getCin();
         String permis = u.getPermis();
         String password = u.getPwd();
+        System.out.println(email);
 
-        String url = Statics.BASE_URL + "/utilisateur/adduserJSON/new?" + "nom=" + nom + "&prenom=" + prenom + "&email=" + email + "&cin=" + cin + "&permis=" + permis + "&password=" + password ;
+        String url = Statics.BASE_URL + "/utilisateur/adduserJSON/new?nom="+nom+"&prenom="+prenom+"&email="+email+"&cin="+cin+"&permis="+permis ;
+       //                                  utilisateur/adduserJSON/new?nom=hedi&prenom=bousbih&email=h@gmail.com&cin=12345678&permis=123456789
 
         req.setUrl(url);
         //GET =>
@@ -97,7 +99,7 @@ public void parseAgents(String jsonText, ArrayList<Utilisateur> users) {
             u.setPermis(obj.get("permis").toString());
             u.setNom(obj.get("nom").toString());
             u.setPrenom(obj.get("prenom").toString());
-            u.setEmail(obj.get("Email").toString());
+            u.setEmail(obj.get("email").toString());
          
             users.add(u);
         }

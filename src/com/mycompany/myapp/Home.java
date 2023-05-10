@@ -38,13 +38,14 @@ public class Home extends Form {
         vehicule.addActionListener((evt) -> new MenuVehicule(current).show());
         badge.addActionListener((evt) -> new MenuBadge(current).show());
         reservation.addActionListener((evt) -> new MenuReservation(current).show());
-        agent.addActionListener((evt) -> new MenuReservation(current).show());
+        agent.addActionListener((evt) -> new MenuAgent(current).show());
 
 
         addAll(park);
         addAll(vehicule);  
         addAll(badge);
         addAll(reservation);
+        addAll(agent);
     }
 
 }

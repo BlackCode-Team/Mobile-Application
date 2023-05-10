@@ -38,7 +38,7 @@ private Resources theme;
 
     b1.addActionListener(l -> new addAgent(current).show());
     b2.addActionListener(l -> new ListAgent(current).show());
-    getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_LEFT, e -> new Home(prev).showBack());
+    getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_LEFT, e -> new Home().showBack());
     
     buttonsContainer.add(b1);
     buttonsContainer.add(b2);

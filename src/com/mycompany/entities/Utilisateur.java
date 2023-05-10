@@ -29,14 +29,7 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
-    public Utilisateur(int iduser, String text, String text0, Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
-    public Utilisateur(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     public Utilisateur(String nom, String prenom, String cin, String permis, String email) {
         this.nom = nom;
@@ -154,6 +147,20 @@ public class Utilisateur {
         this.auth_code = auth_code;
         this.email = email;
     }
+
+    public Utilisateur(String nom, String prenom, String pwd, String cin, String permis, int nbpoint, int is_blocked, String reset_token, String auth_code, String email) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.pwd = pwd;
+        this.cin = cin;
+        this.permis = permis;
+        this.nbpoint = nbpoint;
+        this.is_blocked = is_blocked;
+        this.reset_token = reset_token;
+        this.auth_code = auth_code;
+        this.email = email;
+    }
+    
 
   
 

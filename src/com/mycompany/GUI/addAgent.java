@@ -16,6 +16,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.mycompany.entities.Park;
 import com.mycompany.entities.Utilisateur;
+import com.mycompany.myapp.Home;
 import com.mycompany.services.ServicePark;
 import com.mycompany.services.ServiceUtilisateur;
 
@@ -51,10 +52,11 @@ public class addAgent extends Form{
                     
                     
                     
-                    
-                    Utilisateur u = new Utilisateur(nomAgent.getText(),prenomAgent.getText(),cinAgent.getText(), emailAgent.getText(),permisAgent.getText());
+                                                //   (String nom, String prenom, String cin, String permis, String email)
+                    Utilisateur u = new Utilisateur(nomAgent.getText(),prenomAgent.getText(),cinAgent.getText(),permisAgent.getText(),emailAgent.getText());
                     if(ServiceUtilisateur.getinstance().addAgent(u)){
                          Dialog.show("Alert","added successfuly","ok",null);
+                      new ListAgent(new MenuPark( new Home())).show();
                     }else {
                          Dialog.show("Alert","Err while connecting to server ","ok",null);
                     }
