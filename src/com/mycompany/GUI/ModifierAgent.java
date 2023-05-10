@@ -55,7 +55,7 @@ public class ModifierAgent extends Form{
                 }
                 else{
                     
-                    Utilisateur u = new Utilisateur(Integer.parseInt(nom.getText()),prenom.getText(),cin.getText(), email.getText(),permis.getText());
+                    Utilisateur u = new Utilisateur(nom.getText(),prenom.getText(),cin.getText(), email.getText(),permis.getText());
                     if(ServiceUtilisateur.getinstance().modifierAgent(u,id)){
                          Dialog.show("Alert","added successfuly","ok",null);
                     }else {

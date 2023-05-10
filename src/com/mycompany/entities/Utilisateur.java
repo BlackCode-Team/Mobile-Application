@@ -33,6 +33,22 @@ public class Utilisateur {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    public Utilisateur(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Utilisateur(String nom, String prenom, String cin, String permis, String email) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.cin = cin;
+        this.permis = permis;
+        this.email = email;
+    }
+
+    
+
+    
   
  
     public int getIduser() {

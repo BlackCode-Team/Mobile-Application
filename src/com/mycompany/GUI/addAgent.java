@@ -52,7 +52,7 @@ public class addAgent extends Form{
                     
                     
                     
-                    Utilisateur u = new Utilisateur(Integer.parseInt(nomAgent.getText()),prenomAgent.getText(),cinAgent.getText(), emailAgent.getText(),permisAgent.getText());
+                    Utilisateur u = new Utilisateur(nomAgent.getText(),prenomAgent.getText(),cinAgent.getText(), emailAgent.getText(),permisAgent.getText());
                     if(ServiceUtilisateur.getinstance().addAgent(u)){
                          Dialog.show("Alert","added successfuly","ok",null);
                     }else {
