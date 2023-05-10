@@ -30,16 +30,19 @@ public class Home extends Form {
         Button park = new Button("Gestion des Parks");
         Button badge = new Button("Gestion des badges");
         Button vehicule = new Button("Gestion des véhicules");
+        Button reservation = new Button("Gestion des reservations");
 
 
         park.addActionListener((evt) -> new MenuPark(current).show());
         vehicule.addActionListener((evt) -> new MenuVehicule(current).show());
         badge.addActionListener((evt) -> new MenuBadge(current).show());
+        reservation.addActionListener((evt) -> new MenuReservation(current).show());
 
 
         addAll(park);
         addAll(vehicule);  
         addAll(badge);
+        addAll(reservation);
     }
 
 }
